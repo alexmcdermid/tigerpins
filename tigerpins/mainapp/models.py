@@ -13,4 +13,3 @@ class Locations(models.Model):
     user = models.ManyToManyField(User)
 
 
-print("THIS IS THE CHANGE I AM MAKING")
