@@ -10,6 +10,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def home(request):
   return render(request, 'home.html')
 
+def userLocations(request):
+    return render(request, 'index.html')
+
+def someLink(request):
+    return render(request, 'show.html')
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
