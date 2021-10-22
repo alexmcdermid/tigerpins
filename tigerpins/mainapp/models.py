@@ -11,3 +11,6 @@ class Locations(models.Model):
     long = models.FloatField()
 
     user = models.ManyToManyField(User)
+
+
+print("THIS IS THE CHANGE I AM MAKING")
