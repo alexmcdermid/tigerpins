@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,3 +132,5 @@ LOGIN_REDIRECT_URL = '/'
 
 # Add this variable to specify where logging out redirects to
 LOGOUT_REDIRECT_URL = '/'
+
+GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
