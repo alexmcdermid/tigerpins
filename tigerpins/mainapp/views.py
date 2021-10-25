@@ -1,20 +1,41 @@
+from .models import Pin
 from django.shortcuts import redirect, render
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
+
 
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
 
-def userLocations(request):
-    return render(request, 'index.html')
+@login_required
+def pins_index(request):
+  all_pins = Pin.objects.filter(user=request.user)
+  return render(request, 'pins/index.html', { 'pins': all_pins })
 
-def someLink(request):
-    return render(request, 'show.html')
+@login_required
+def pins_show(request, pin_id):
+    pin = Pin.objects.get(id = pin_id)
+    return render(request, 'pins/show.html', { 'pin': pin })
+
+class PinCreate(LoginRequiredMixin, CreateView):
+  model = Pin
+  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+  def form_valid(self, form):
+    form.instance.user = self.request.user
+    return super().form_valid(form)
+
+class PinUpdate(LoginRequiredMixin, UpdateView):
+  model = Pin
+  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+
+class PinDelete(LoginRequiredMixin, DeleteView):
+  model = Pin
+  success_url = '/pins/'
 
 def signup(request):
   error_message = ''

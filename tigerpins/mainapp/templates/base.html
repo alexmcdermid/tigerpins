@@ -16,15 +16,16 @@
     <nav>
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;tigerpins</a></li>
+          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Tiger Pins</a></li>
         </ul>
         <ul class="right">
             {% if user.is_authenticated %}
-            <li><a href="/userLocations">userLocations</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li><a href="{% url 'create' %}">add pin</a></li>
+              <li><a href="{% url 'index' %}">brownse pins</a></li>
+              <li><a href="{% url 'logout' %}">log out</a></li>
             {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+              <li><a href="{% url 'signup' %}">sign up</a></li>
+              <li><a href="{% url 'login' %}">log in</a></li>
             {% endif %}        
         </ul>
       </div>

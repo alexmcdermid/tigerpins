@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><br><br><br><br>
+<h1>[map goes here]</h1>
+<br><br>
+
+<div class="trip_details">
+    <div class="trip_header">{{ pin.name }}</div>
+    <table>
+        <tr>
+            <th>Location:</th>
+            <td>{{ pin.address }}</td>
+        </tr>
+        <tr>
+            <th>Date:</th>
+            <td>{{ pin.date }}</td>
+        </tr>
+        <tr>
+            <th>Purpose</th>
+            <td>{{ pin.purpose }}</td>
+        </tr>
+        <tr>
+            <th>Rating:</th>
+            <td>{{ pin.rating }} / 5</td>
+        </tr>
+        <tr>
+            <th>Note:</th>
+            <td>{{ pin.note }}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="button"><a href="{% url 'update' pin.id %}">[Edit]</a></div>
+<div class="button"><a href="{% url 'delete' pin.id %}">[Delete]</a></div>
+
+{% endblock %}

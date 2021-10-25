@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br><br>
+<h4>welcome back {{ user }}! </h4>
+<br>
+<h1>[map goes here]</h1>
+<br><br>
+<p>sort by > [most recent] [alphabetical]</p>
+<br><br>
+{% for pin in pins %}
+    <div class='pin-container'>
+        <div class='card'>
+            <div class="card-content">
+                <a href="{% url 'show' pin.id %}">
+                    <span class="card-title">
+                        <h5><b>{{ pin.name.upper }}</b></h5>
+                        <p>{{ pin.address.upper }}</p>
+                        <p>{{ pin.date }}</p>
+                        <p>{{ pin.rating }} / 5</p>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
