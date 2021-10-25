@@ -1,8 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+  <script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of center
+        const center = { lat: parseFloat("{{pin.lat}}"), lng: parseFloat("{{pin.long}}") };
+        // The map, centered at center
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: center,
+            zoom: 4,
+        });
+        // The marker, positioned at center
+        // const marker = new google.maps.Marker({
+        // position: center,
+        // map: map,
+        // });
+    }
+    </script>
 
 <br><br><br><br><br>
-<h1>[map goes here]</h1>
+<div id="map"></div>
+
 <br><br>
 
 <div class="trip-details">
@@ -28,10 +55,24 @@
             <th>Note:</th>
             <td>{{ pin.note }}</td>
         </tr>
+        <tr>
+            <th>Lat:</th>
+            <td>{{ pin.lat }}</td>
+        </tr>
+        <tr>
+            <th>Long:</th>
+            <td>{{ pin.long }}</td>
+        </tr>
     </table>
 </div>
 
 <div class="button"><a href="{% url 'update' pin.id %}">[Edit]</a></div>
 <div class="button"><a href="{% url 'delete' pin.id %}">[Delete]</a></div>
 
+
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
+async
+></script>
 {% endblock %}

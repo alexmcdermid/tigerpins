@@ -6,10 +6,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Create your views here.
 def home(request):
-  return render(request, 'home.html')
+  return render(request, 'home.html', {'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
 @login_required
 def pins_index(request):
@@ -19,11 +22,11 @@ def pins_index(request):
 @login_required
 def pins_show(request, pin_id):
     pin = Pin.objects.get(id = pin_id)
-    return render(request, 'pins/show.html', { 'pin': pin })
+    return render(request, 'pins/show.html', { 'pin': pin, 'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
-  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note', 'lat', 'long']
   success_url = '/pins/'
 
   def form_valid(self, form):
