@@ -10,21 +10,29 @@
     }
   </style>
   <script>
+    //getting the data and converting it to correct datatype
+    var myData = "{{pins}}"
+    var array = JSON.parse(myData)
+    console.log(array)
+    
     // Initialize and add the map
     function initMap() {
-      // The location of Uluru
-      const uluru = { lat: -25.344, lng: 131.036 };
+   
       // The map, centered at Uluru
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 4,
-        center: uluru,
+        center: new google.maps.LatLng(-33.92, 151.25),
       });
-      // The marker, positioned at Uluru
-      const marker = new google.maps.Marker({
-        position: uluru,
-        map: map,
-      });
+
+      for(i=0;i<array.length;i++){
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(array[i][0],array[i][1]),
+            map: map
+        })
+      }
+      
     }
+    
   </script>
 <br><br><br><br><br>
 <div id="map"></div>
