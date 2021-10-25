@@ -8,39 +8,35 @@
       width: 100%;
       /* The width is the width of the web page */
     }
-  </style>
-  <script>
-    //getting the data and converting it to correct datatype
-    var myData = "{{locations}}"
-    var array = JSON.parse(myData)
-    console.log(array)
-    
-    // Initialize and add the map
-    function initMap() {
-   
-      // The map, centered at Uluru
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: new google.maps.LatLng(-33.92, 151.25),
-      });
+</style>
+<script>
+  //getting the data and converting it to correct datatype
+  const myData = "{{locations}}"
+  const array = JSON.parse(myData)
+  console.log(array)
+  
+  // Initialize and add the map
+  function initMap() {
+  
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 1.5,
+      center: new google.maps.LatLng(29.40297, 1.09515),
+    })
 
-      for(i=0;i<array.length;i++){
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(array[i][0],array[i][1]),
-            map: map
-        })
-      }
-      
+    for(i = 0; i < array.length; i++){
+      marker = new google.maps.Marker({
+          position: new google.maps.LatLng(array[i][0], array[i][1]),
+          map: map
+      })
     }
-    
-  </script>
+  }
+</script>
+
 <br><br><br><br><br>
 <div id="map"></div>
 <h4>pin your world with us</h4>
 
-<script
-src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
-async
-></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly" async></script>
 
 {% endblock %}

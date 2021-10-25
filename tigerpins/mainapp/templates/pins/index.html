@@ -20,19 +20,17 @@
    
       // The map, centered at Uluru
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: new google.maps.LatLng(-33.92, 151.25),
-      });
+        zoom: 1.5,
+        center: new google.maps.LatLng(29.40297, 1.09515),
+      })
 
-      for(i=0;i<array.length;i++){
+      for(i = 0 ; i < array.length; i++){
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(array[i][0],array[i][1]),
             map: map
         })
       }
-      
     }
-    
   </script>
 <br><br><br><br><br>
 <h4>welcome back {{ user }}! </h4>
