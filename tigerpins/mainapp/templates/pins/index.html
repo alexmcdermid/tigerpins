@@ -1,9 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
+<style type="text/css">
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+  </style>
+  <script>
+    //getting the data and converting it to correct datatype
+    var myData = "{{locations}}"
+    var array = JSON.parse(myData)
+    console.log(array)
+    
+    // Initialize and add the map
+    function initMap() {
+   
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
+        center: new google.maps.LatLng(-33.92, 151.25),
+      });
+
+      for(i=0;i<array.length;i++){
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(array[i][0],array[i][1]),
+            map: map
+        })
+      }
+      
+    }
+    
+  </script>
 <br><br><br><br><br>
 <h4>welcome back {{ user }}! </h4>
 <br>
-<h1>[map goes here]</h1>
+<div id="map"></div>
 <br><br>
 <p>sort by > [most recent] [alphabetical]</p>
 <br><br>
@@ -22,5 +56,10 @@
             </div>
         </div>
     </div>
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
+async
+></script>
 {% endfor %}
 {% endblock %}

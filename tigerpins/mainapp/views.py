@@ -17,12 +17,16 @@ def home(request):
   for pin in all_pins:
     temp = [pin.lat,pin.long]
     locations.append(temp)
-  return render(request, 'home.html', {'pins' : locations, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
+  return render(request, 'home.html', {'locations' : locations, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
 @login_required
 def pins_index(request):
   all_pins = Pin.objects.filter(user=request.user)
-  return render(request, 'pins/index.html', { 'pins': all_pins })
+  locations = []
+  for pin in all_pins:
+    temp = [pin.lat,pin.long]
+    locations.append(temp)
+  return render(request, 'pins/index.html', { 'pins': all_pins,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 @login_required
 def pins_show(request, pin_id):
