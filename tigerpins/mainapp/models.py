@@ -22,5 +22,5 @@ class Pin(models.Model):
     def __str__(self):
         return self.name
     
-    def get_absolute_url(self):
-        return reverse('show', kwargs={'pin_id': self.id})
+    # def get_absolute_url(self):
+    #     return reverse('show', kwargs={'pin_id': self.id}, current_app='mainapp')

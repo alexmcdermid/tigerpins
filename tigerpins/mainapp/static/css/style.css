@@ -31,7 +31,7 @@ a {
   border-radius: 25px;
 }
 
-.trip_header {
+.trip-header {
   text-align: center;
   font-size: 25px;
   font-weight: bold;
@@ -56,7 +56,7 @@ tr {
   color: #2E1503;
 }
 
-.trip_details {
+.trip-details {
   background-color: beige;
   border-radius: 25px;
   padding: 10px;

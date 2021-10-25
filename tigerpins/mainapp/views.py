@@ -25,6 +25,7 @@ def pins_show(request, pin_id):
 class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
   fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+  success_url = '/pins/'
   def form_valid(self, form):
     form.instance.user = self.request.user
     return super().form_valid(form)

@@ -21,7 +21,7 @@
         <ul class="right">
             {% if user.is_authenticated %}
             <li><a href="{% url 'create' %}">add pin</a></li>
-              <li><a href="{% url 'index' %}">brownse pins</a></li>
+              <li><a href="{% url 'index' %}">browse pins</a></li>
               <li><a href="{% url 'logout' %}">log out</a></li>
             {% else %}
               <li><a href="{% url 'signup' %}">sign up</a></li>
