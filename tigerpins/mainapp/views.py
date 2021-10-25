@@ -5,8 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -26,8 +25,10 @@ class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
   fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
   success_url = '/pins/'
+
   def form_valid(self, form):
-    form.instance.user.set(self.request.user)
+    pin = form.save()
+    pin.user.add(self.request.user.id)
     return super().form_valid(form)
 
 class PinUpdate(LoginRequiredMixin, UpdateView):
