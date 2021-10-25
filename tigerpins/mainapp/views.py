@@ -27,7 +27,7 @@ class PinCreate(LoginRequiredMixin, CreateView):
   fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
   success_url = '/pins/'
   def form_valid(self, form):
-    form.instance.user = self.request.user
+    form.instance.user.set(self.request.user)
     return super().form_valid(form)
 
 class PinUpdate(LoginRequiredMixin, UpdateView):
