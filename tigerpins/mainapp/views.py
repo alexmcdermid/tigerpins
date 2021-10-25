@@ -12,7 +12,7 @@ load_dotenv()
 
 # Create your views here.
 def home(request):
-  all_pins = Pin.objects.filter(user=request.user)
+  all_pins = Pin.objects.all()
   locations = []
   for pin in all_pins:
     temp = [pin.lat,pin.long]
