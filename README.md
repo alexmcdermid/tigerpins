@@ -1,3 +1,3 @@
-tigerpins
+tigerpins GA class project 3
 
-This is an edit by Yousuf
+https://tigerpins.herokuapp.com/
