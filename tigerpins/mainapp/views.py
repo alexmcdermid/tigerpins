@@ -1,12 +1,12 @@
 from .models import Pin
 from django.shortcuts import redirect, render
-from django.contrib.auth import login
+from django.contrib.auth import base_user, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
-import os
+import os,requests
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -35,17 +35,30 @@ def pins_show(request, pin_id):
 
 class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
-  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note', 'lat', 'long']
-  success_url = '/pins/'
+  fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+  #success_url = '/pins/'
 
   def form_valid(self, form):
     pin = form.save()
+    #geocoding
+    lat,long = extract_latlong(pin.address)
+    pin.lat = lat
+    pin.long = long
     pin.user.add(self.request.user.id)
     return super().form_valid(form)
 
 class PinUpdate(LoginRequiredMixin, UpdateView):
   model = Pin
   fields = ['name', 'address', 'date', 'purpose', 'rating', 'note']
+
+  def form_valid(self,form):
+    pin = form.save()
+    #geocoding
+    lat,long = extract_latlong(pin.address)
+    pin.lat = lat
+    pin.long = long
+    return super().form_valid(form)
+
 
 class PinDelete(LoginRequiredMixin, DeleteView):
   model = Pin
@@ -69,3 +82,21 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+def extract_latlong(address):
+  #if error return none and none
+  lat,long = None, None
+  api_key = os.getenv('GOOGLE_MAPS_API_KEY')
+  base_url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+  endpoint = f"{base_url}{address}&key={api_key}"
+  response = requests.get(endpoint)
+  if response.status_code not in range(200,299):
+    return None,None
+  try:
+    results = response.json()['results'][0]
+    lat = results['geometry']['location']['lat']
+    long = results['geometry']['location']['lng']
+  except:
+    pass
+  return lat,long
+
