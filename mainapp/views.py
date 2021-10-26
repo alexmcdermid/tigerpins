@@ -21,7 +21,16 @@ def home(request):
 
 @login_required
 def pins_index(request):
-  all_pins = Pin.objects.filter(user=request.user)
+  sort_by = None
+  try:
+    sort_by = request.POST['sortby']
+  except:
+    sort_by = "date"
+  print("sort_by", sort_by)
+  if sort_by == "name":
+    all_pins = Pin.objects.filter(user=request.user).order_by('name')
+  else:
+    all_pins = Pin.objects.filter(user=request.user).order_by('-date')
   locations = []
   for pin in all_pins:
     temp = [pin.lat,pin.long]

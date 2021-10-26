@@ -172,7 +172,14 @@ function initMap() {
 <br />
 <div id="map"></div>
 <br /><br />
-<p>sort by > [most recent] [alphabetical]</p>
+<div class = "sort-buttons">
+  <p>sort by:</p>
+  <form action="/pins/" method="POST">
+    {% csrf_token %}
+    <button class="waves-effect brown lighten-2 btn-small" name="sortby" value="date">[Date]</button>
+    <button class="waves-effect brown lighten-2 btn-small" name="sortby" value="name">[Name]</button>
+  </form>
+</div>
 <br /><br />
 <div class="row">
   {% for pin in pins %}
