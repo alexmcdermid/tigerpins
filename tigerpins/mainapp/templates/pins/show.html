@@ -19,11 +19,31 @@
             center: center,
             zoom: 4,
         });
+        const contentString =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">{{pin.name}}</h1>' +
+            '<div id="bodyContent">' +
+            "</div>" +
+            "</div>";
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+        });
         // The marker, positioned at center
         const marker = new google.maps.Marker({
         position: center,
         map: map,
+        title: "{{pin.name}}"
         });
+        marker.addListener("click", () => {
+        infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false,
+        });
+        });
+        
     }
     </script>
 
