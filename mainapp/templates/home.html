@@ -35,7 +35,7 @@
       })
       google.maps.event.addListener(marker, 'click', function () {
       // do something with this marker ...
-      infowindow.setContent('this thing');
+      infowindow.setContent(`${marker.position}`);
       infowindow.open(map, this);
       });
     }
