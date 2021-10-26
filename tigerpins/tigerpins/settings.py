@@ -134,3 +134,7 @@ LOGIN_REDIRECT_URL = '/pins/'
 LOGOUT_REDIRECT_URL = '/'
 
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
