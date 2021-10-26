@@ -14,6 +14,7 @@ load_dotenv()
 def home(request):
   all_pins = Pin.objects.all()
   locations = []
+  names = []
   for pin in all_pins:
     temp = [pin.lat,pin.long]
     locations.append(temp)

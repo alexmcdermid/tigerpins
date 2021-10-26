@@ -24,13 +24,26 @@
       center: new google.maps.LatLng(29.40297, 1.09515),
     })
 
+    const infowindow = new google.maps.InfoWindow({
+            content: 'contentString',
+        });
+
     for(i = 0; i < array.length; i++){
-      marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
           position: new google.maps.LatLng(array[i][0], array[i][1]),
-          map: map
+          map: map,
       })
+      google.maps.event.addListener(marker, 'click', function () {
+      // do something with this marker ...
+      alert("I am marker " + marker.position); 
+      });
     }
+
+    
+
+    
   }
+  
 </script>
 
 <br><br><br><br><br>

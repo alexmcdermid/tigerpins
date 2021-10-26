@@ -36,12 +36,13 @@
         map: map,
         title: "{{pin.name}}"
         });
+        
         marker.addListener("click", () => {
-        infowindow.open({
-        anchor: marker,
-        map,
-        shouldFocus: false,
-        });
+            infowindow.open({
+            anchor: marker,
+            map,
+            shouldFocus: false,
+            });
         });
         
     }
