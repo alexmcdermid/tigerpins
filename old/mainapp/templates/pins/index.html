@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+    .card {
+      height: 16em;
+      overflow: hidden;
+      word-wrap: break-word;
+    }
+    
+  </style>
+  <script>
+    //getting the data and converting it to correct datatype
+    var myData = "{{locations}}"
+    var array = JSON.parse(myData)
+    //console.log(array)
+    
+    // Initialize and add the map
+    function initMap() {
+   
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 1.5,
+        center: new google.maps.LatLng(29.40297, 1.09515),
+      })
+
+      for(i = 0 ; i < array.length; i++){
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(array[i][0],array[i][1]),
+            map: map
+        })
+      }
+    }
+  </script>
+<br><br><br><br><br>
+<h4>welcome back {{ user }}! </h4>
+<br>
+<div id="map"></div>
+<br><br>
+<p>sort by > [most recent] [alphabetical]</p>
+<br><br>
+<div class='row'>
+{% for pin in pins %}
+      <div class="col s12 m6 l4">
+        <div class='card'>
+          <div class="card-content">
+              <a href="{% url 'show' pin.id %}">
+                  <span class="card-title">
+                      <h5><b>{{ pin.name.upper }}</b></h5>
+                      <p>{{ pin.address.upper }}</p>
+                      <p>{{ pin.date }}</p>
+                      <p>{{ pin.rating }} / 5</p>
+                  </span>
+              </a>
+          </div>
+        </div>
+      </div>
+{% endfor %}
+</div>
+<script
+src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
+async
+></script>
+{% endblock %}

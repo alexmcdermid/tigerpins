@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<style type="text/css">
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;
+      /* The height is 400 pixels */
+      width: 100%;
+      /* The width is the width of the web page */
+    }
+</style>
+<script>
+  //getting the data and converting it to correct datatype
+  const myData = "{{locations}}"
+  const array = JSON.parse(myData)
+  //console.log(array)
+  
+  // Initialize and add the map
+  function initMap() {
+  
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 1.5,
+      center: new google.maps.LatLng(29.40297, 1.09515),
+    })
+
+    const infowindow = new google.maps.InfoWindow({
+            content: 'contentString',
+        });
+
+    for(i = 0; i < array.length; i++){
+        let marker = new google.maps.Marker({
+          position: new google.maps.LatLng(array[i][0], array[i][1]),
+          map: map,
+      })
+      google.maps.event.addListener(marker, 'click', function () {
+      // do something with this marker ...
+      alert("I am marker " + marker.position); 
+      });
+    }
+
+    
+
+    
+  }
+  
+</script>
+
+<br><br><br><br><br>
+<div id="map"></div>
+<h4>pin your world with us</h4>
+
+<script src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly" async></script>
+
+{% endblock %}
