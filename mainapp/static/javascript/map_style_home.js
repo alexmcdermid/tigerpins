@@ -1,5 +1,3 @@
-console.log("please work");
-
 //getting the data and converting it to correct datatype
 var myData = "{{locations}}";
 var array = JSON.parse(myData);
