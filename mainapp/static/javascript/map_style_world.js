@@ -152,15 +152,26 @@ function initMap() {
   });
 
   for (i = 0; i < array.length; i++) {
-    marker = new google.maps.Marker({
-      position: new google.maps.LatLng(array[i][0], array[i][1]),
-      map: map,
-      icon: pinImage,
-      shadow: pinShadow,
-      id: array[i][2],
-      label: `${array[i][2]}`
-      
-    })
+    if(array[i][2]==userid){
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(array[i][0], array[i][1]),
+        map: map,
+        icon: pinImage,
+        shadow: pinShadow,
+        id: array[i][2],
+        //label: `${array[i][2]}`
+      })
+    } else {
+         marker = new google.maps.Marker({
+        position: new google.maps.LatLng(array[i][0], array[i][1]),
+        map: map,
+        icon: pinImage2,
+        shadow: pinShadow,
+        id: array[i][2],
+        //label: `${array[i][2]}`
+      })
+    }
+   
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
       //could somehow fetch the name of this user here

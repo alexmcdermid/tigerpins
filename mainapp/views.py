@@ -12,13 +12,14 @@ load_dotenv()
 
 # Create your views here.
 def home(request):
+  user = request.user
   all_pins = Pin.objects.all()
   locations = []
   for pin in all_pins:
     for data in pin.user.all():
       temp = [pin.lat,pin.long,data.id]
       locations.append(temp)
-  return render(request, 'home.html', {'locations' : locations, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
+  return render(request, 'home.html', {'locations' : locations, 'userid':user.id, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
 @login_required
 def pins_index(request):
