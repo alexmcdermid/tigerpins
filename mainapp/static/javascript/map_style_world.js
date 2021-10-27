@@ -139,7 +139,8 @@ function initMap() {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(array[i][0], array[i][1]),
       map: map,
-      id: array[i][2]
+      id: array[i][2],
+      label: `${array[i][2]}`
     })
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
