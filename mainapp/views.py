@@ -23,6 +23,7 @@ def home(request):
 
 @login_required
 def pins_index(request):
+  user = request.user
   sort_by = None
   try:
     sort_by = request.POST['sortby']
@@ -38,7 +39,7 @@ def pins_index(request):
     for data in pin.user.all():
       temp = [pin.lat,pin.long,data.id]
       locations.append(temp)
-  return render(request, 'pins/index.html', { 'pins': all_pins,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
+  return render(request, 'pins/index.html', { 'pins': all_pins,'userid':user.id,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 @login_required
 def pins_show(request, pin_id):
