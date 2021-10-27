@@ -1,173 +1,21 @@
 {% extends 'base.html' %} {% block content %}
-<style type="text/css">
-  /* Set the size of the div element that contains the map */
-  #map {
-    height: 400px;
-    /* The height is 400 pixels */
-    width: 100%;
-    /* The width is the width of the web page */
-  }
-</style>
+
 <script>
-  // Initialize and add the map
-  function initMap() {
-    // styling
-    const styledMapType = new google.maps.StyledMapType(
-      [
-        { elementType: "geometry", stylers: [{ color: "#f52245" }] },
-        { elementType: "labels.text.fill", stylers: [{ color: "#523735" }] },
-        { elementType: "labels.text.stroke", stylers: [{ color: "#f5f1e6" }] },
-        {
-          featureType: "administrative",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#c9b2a6" }],
-        },
-        {
-          featureType: "administrative.land_parcel",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#f52245" }],
-        },
-        {
-          featureType: "administrative.land_parcel",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#ae9e90" }],
-        },
-        {
-          featureType: "landscape.natural",
-          elementType: "geometry",
-          stylers: [{ color: "#ab7b48" }],
-        },
-        {
-          featureType: "poi",
-          elementType: "geometry",
-          stylers: [{ color: "#dfd2ae" }],
-        },
-        {
-          featureType: "poi",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#93817c" }],
-        },
-        {
-          featureType: "poi.park",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#a5b076" }],
-        },
-        {
-          featureType: "poi.park",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#447530" }],
-        },
-        {
-          featureType: "road",
-          elementType: "geometry",
-          stylers: [{ color: "#f5f1e6" }],
-        },
-        {
-          featureType: "road.arterial",
-          elementType: "geometry",
-          stylers: [{ color: "#fdfcf8" }],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry",
-          stylers: [{ color: "#f8c967" }],
-        },
-        {
-          featureType: "road.highway",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#e9bc62" }],
-        },
-        {
-          featureType: "road.highway.controlled_access",
-          elementType: "geometry",
-          stylers: [{ color: "#e98d58" }],
-        },
-        {
-          featureType: "road.highway.controlled_access",
-          elementType: "geometry.stroke",
-          stylers: [{ color: "#db8555" }],
-        },
-        {
-          featureType: "road.local",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#806b63" }],
-        },
-        {
-          featureType: "transit.line",
-          elementType: "geometry",
-          stylers: [{ color: "#dfd2ae" }],
-        },
-        {
-          featureType: "transit.line",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#8f7d77" }],
-        },
-        {
-          featureType: "transit.line",
-          elementType: "labels.text.stroke",
-          stylers: [{ color: "#ebe3cd" }],
-        },
-        {
-          featureType: "transit.station",
-          elementType: "geometry",
-          stylers: [{ color: "#dfd2ae" }],
-        },
-        {
-          featureType: "water",
-          elementType: "geometry.fill",
-          stylers: [{ color: "#201e20" }],
-        },
-        {
-          featureType: "water",
-          elementType: "labels.text.fill",
-          stylers: [{ color: "#f52245" }],
-        },
-      ],
-      { name: "Styled Map" }
-    );
-    // The location of center
-    const center = {
-      lat: parseFloat("{{pin.lat}}"),
-      lng: parseFloat("{{pin.long}}"),
-    };
-    // The map, centered at center
-    const map = new google.maps.Map(document.getElementById("map"), {
-      center: center,
-      zoom: 4,
-      mapTypeControlOptions: {
-        mapTypeIds: ["map"],
-      },
-    });
-
-    map.mapTypes.set("styled_map", styledMapType);
-    map.setMapTypeId("styled_map");
-    const contentString =
-      '<div id="content">' +
-      '<div id="siteNotice">' +
-      "</div>" +
-      '<h3 id="firstHeading" class="firstHeading">{{pin.name}}</h3>' +
-      '<div id="bodyContent">{{pin.date}}<br>Rating: {{pin.rating}}/5<br>{{pin.note}}' +
-      "</div>" +
-      "</div>";
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    });
-    // The marker, positioned at center
-    const marker = new google.maps.Marker({
-      position: center,
-      map: map,
-      title: "{{pin.name}}",
-    });
-
-    marker.addListener("click", () => {
-      infowindow.open({
-        anchor: marker,
-        map,
-        shouldFocus: false,
-      });
-    });
-  }
+  const center = {
+    lat: parseFloat("{{pin.lat}}"),
+    lng: parseFloat("{{pin.long}}"),
+  };
+  const contentString =
+    '<div id="content">' +
+    '<div id="siteNotice">' +
+    "</div>" +
+    '<h3 id="firstHeading" class="firstHeading">{{pin.name}}</h3>' +
+    '<div id="bodyContent">{{pin.date}}<br>Rating: {{pin.rating}}/5<br>{{pin.note}}' +
+    "</div>" +
+    "</div>"; 
 </script>
+
+<script defer src="../../static/javascript/map_style_show.js"></script>
 
 <br /><br /><br /><br /><br />
 <div id="map"></div>
@@ -218,7 +66,11 @@
 </div>
 <br />
 <div>
-  <a class="waves-effect brown lighten-2 btn-small" href="{% url 'update' pin.id %}">[Edit]</a>
+  <a
+    class="waves-effect brown lighten-2 btn-small"
+    href="{% url 'update' pin.id %}"
+    >[Edit]</a
+  >
 </div>
 
 <script

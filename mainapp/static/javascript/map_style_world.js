@@ -1,7 +1,5 @@
-//getting the data and converting it to correct datatype
-var myData = "{{locations}}";
-var array = JSON.parse(myData);
-// console.log(array)
+// testing if we are getting data from home.html
+console.log(array);
 
 function initMap() {
   const styledMapType = new google.maps.StyledMapType(

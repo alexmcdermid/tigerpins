@@ -21,6 +21,18 @@ a {
   color: #2E1503;
 }
 
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+.card {
+  height: 16em;
+  overflow: hidden;
+  word-wrap: break-word;
+}
 .pin-container {
   display: flex;
   justify-content: space-evenly;

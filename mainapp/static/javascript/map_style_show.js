@@ -115,46 +115,32 @@ function initMap() {
     { name: "Styled Map" }
   );
 
-  const center = {
-    lat: parseFloat("{{pin.lat}}"),
-    lng: parseFloat("{{pin.long}}"),
-  };
   const map = new google.maps.Map(document.getElementById("map"), {
     center: center,
     zoom: 4,
     mapTypeControlOptions: {
-            mapTypeIds: ["map"],
-          },
+      mapTypeIds: ["map"],
+    },
   });
-
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//       zoom: 4,
-//       center: new google.maps.LatLng(29.40297, 1.09515),
-//       mapTypeControlOptions: {
-//       mapTypeIds: ["map"],
-//     },
-//   });
 
   map.mapTypes.set("styled_map", styledMapType);
   map.setMapTypeId("styled_map");
 
-  // The marker, positioned at center
   const marker = new google.maps.Marker({
     position: center,
     map: map,
+    title: "{{pin.name}}",
+  });
+
+  marker.addListener("click", () => {
+    infowindow.open({
+      anchor: marker,
+      map,
+      shouldFocus: false,
+    });
+  });
+
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
   });
 }
-
-// function initMap() {
-//     // The location of center
-//     const center = { lat: parseFloat("{{pin.lat}}"), lng: parseFloat("{{pin.long}}") };
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//         center: center,
-//         zoom: 4,
-//     });
-//     // The marker, positioned at center
-//     const marker = new google.maps.Marker({
-//     position: center,
-//     map: map,
-//     });
-// }
