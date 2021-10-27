@@ -58,19 +58,8 @@
 <br />
 
 <div>
-  <a
-    class="waves-effect brown lighten-2 btn-small"
-    href="{% url 'delete' pin.id %}"
-    >[Delete]</a
-  >
-</div>
-<br />
-<div>
-  <a
-    class="waves-effect brown lighten-2 btn-small"
-    href="{% url 'update' pin.id %}"
-    >[Edit]</a
-  >
+  <a class="waves-effect btn-small" href="{% url 'update' pin.id %}">Edit</a>
+  <a class="waves-effect btn-small" href="{% url 'delete' pin.id %}">Delete</a>
 </div>
 
 <script

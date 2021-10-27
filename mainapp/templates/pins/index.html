@@ -18,19 +18,8 @@
   <form action="/pins/" method="POST">
     {% csrf_token %}
     <button
-      class="waves-effect brown lighten-2 btn-small"
-      name="sortby"
-      value="date"
-    >
-      [Date]
-    </button>
-    <button
-      class="waves-effect brown lighten-2 btn-small"
-      name="sortby"
-      value="name"
-    >
-      [Name]
-    </button>
+      class="btn-small" name="sortby" value="date">Date</button>
+    <button class="btn-small" name="sortby" value="name">Name</button>
   </form>
 </div>
 <br /><br />

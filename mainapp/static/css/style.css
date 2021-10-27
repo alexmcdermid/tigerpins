@@ -17,8 +17,25 @@ main {
   flex: 1 0 auto;
 }
 
-a {
+a, label, input {
   color: #2E1503;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.btn, .btn-small, .waves-button-input, .brown.lighten-2, button {
+  background-color: #2E1503 !important;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+input {
+  border-bottom: 1px solid #2E1503;
+  box-shadow: 1px solid #2E1503;
+}
+
+input:focus {
+  border-bottom: 1px solid #2E1503 !important;
+  box-shadow: 0 1px 0 0 #2E1503 !important;
 }
 
 #map {
