@@ -2,8 +2,8 @@
 
 <script defer>
   //getting the data and converting it to correct datatype
-  const myData = "{{locations}}";
-  const array = JSON.parse(myData);
+  const array = {{locations | safe}};
+  //const array = JSON.parse(myData);
   const userid = "{{userid}}"
 </script>
 <script defer src="static/javascript/map_style_world.js"></script>

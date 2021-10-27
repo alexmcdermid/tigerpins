@@ -158,7 +158,7 @@ function initMap() {
         map: map,
         icon: pinImage,
         shadow: pinShadow,
-        id: array[i][2],
+        id: array[i][4],
         pinid: array[i][3],
         //label: `${array[i][2]}`
       })
@@ -168,7 +168,7 @@ function initMap() {
         map: map,
         icon: pinImage2,
         shadow: pinShadow,
-        id: array[i][2],
+        id: array[i][4],
         pinid: array[i][3],
         //label: `${array[i][2]}`
       })
@@ -177,7 +177,7 @@ function initMap() {
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
       //could somehow fetch the name of this user here
-      infowindow.setContent(`UserID:${this.id}<br>LOC:${this.position}<br>
+      infowindow.setContent(`user: ${this.id}<br>LOC:${this.position}<br>
       <a href="../pins/${this.pinid}">click here for more info</a>
       `);
       infowindow.open(map, this);

@@ -2,8 +2,8 @@
 
 <script>
   //getting the data and converting it to correct datatype
-  var myData = "{{locations}}";
-  var array = JSON.parse(myData);
+  var array = {{locations | safe}};
+  //var array = JSON.parse(myData);
   const userid = "{{userid}}"
 
 </script>
