@@ -3,6 +3,21 @@ console.log(array);
 
 
 function initMap() {
+  var pinColor = "FE7569";
+  var pinColor2 = "000000"
+    var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+        new google.maps.Size(21, 34),
+        new google.maps.Point(0,0),
+        new google.maps.Point(10, 34));
+    var pinImage2 = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor2,
+      new google.maps.Size(21, 34),
+      new google.maps.Point(0,0),
+      new google.maps.Point(10, 34));
+    var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+        new google.maps.Size(40, 37),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(12, 35));
+
   const styledMapType = new google.maps.StyledMapType(
     [
       { elementType: "geometry", stylers: [{ color: "#f52245" }] },
@@ -140,6 +155,8 @@ function initMap() {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(array[i][0], array[i][1]),
       map: map,
+      icon: pinImage,
+      shadow: pinShadow,
       id: array[i][2],
       label: `${array[i][2]}`
       
