@@ -1,6 +1,7 @@
 // testing if we are getting data from home.html
 console.log(array);
 
+
 function initMap() {
   const styledMapType = new google.maps.StyledMapType(
     [
@@ -141,9 +142,11 @@ function initMap() {
       map: map,
       id: array[i][2],
       label: `${array[i][2]}`
+      
     })
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
+      //could somehow fetch the name of this user here
       infowindow.setContent(`ID:${this.id}<br>LOC:${this.position}`);
       infowindow.open(map, this);
     });
