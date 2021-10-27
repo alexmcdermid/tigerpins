@@ -159,6 +159,7 @@ function initMap() {
         icon: pinImage,
         shadow: pinShadow,
         id: array[i][2],
+        pinid: array[i][3],
         //label: `${array[i][2]}`
       })
     } else {
@@ -168,6 +169,7 @@ function initMap() {
         icon: pinImage2,
         shadow: pinShadow,
         id: array[i][2],
+        pinid: array[i][3],
         //label: `${array[i][2]}`
       })
     }
@@ -175,7 +177,9 @@ function initMap() {
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
       //could somehow fetch the name of this user here
-      infowindow.setContent(`ID:${this.id}<br>LOC:${this.position}`);
+      infowindow.setContent(`UserID:${this.id}<br>LOC:${this.position}<br>
+      <a href="../pins/${this.pinid}">click here for more info</a>
+      `);
       infowindow.open(map, this);
     });
   }
