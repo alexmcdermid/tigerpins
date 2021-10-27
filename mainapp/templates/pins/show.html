@@ -56,11 +56,12 @@
   </table>
 </div>
 <br />
-
+{% if user.id == pinid %}
 <div>
   <a class="waves-effect btn-small" href="{% url 'update' pin.id %}">Edit</a>
   <a class="waves-effect btn-small" href="{% url 'delete' pin.id %}">Delete</a>
 </div>
+{%endif%}
 
 <script
   src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"

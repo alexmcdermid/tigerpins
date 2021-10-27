@@ -17,7 +17,7 @@ def home(request):
   locations = []
   for pin in all_pins:
     for data in pin.user.all():
-      temp = [pin.lat,pin.long,data.id,pin.id,data.username]
+      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.address]
       locations.append(temp)
   return render(request, 'home.html', {'locations' : locations, 'userid':user.id, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
@@ -37,14 +37,17 @@ def pins_index(request):
   locations = []
   for pin in all_pins:
     for data in pin.user.all():
-      temp = [pin.lat,pin.long,data.id,pin.id,data.username]
+      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.address]
       locations.append(temp)
   return render(request, 'pins/index.html', { 'pins': all_pins,'userid':user.id,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 @login_required
 def pins_show(request, pin_id):
     pin = Pin.objects.get(id = pin_id)
-    return render(request, 'pins/show.html', { 'pin': pin, 'key': os.getenv('GOOGLE_MAPS_API_KEY') })
+    userid = request.user.id
+    for data in pin.user.all():
+      pinid = data.id
+    return render(request, 'pins/show.html', { 'pin': pin,'userid': userid,'pinid':pinid, 'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
@@ -98,7 +101,7 @@ def signup(request):
 
 def extract_latlong(address):
   #if error return none and none
-  lat,long = None, None
+  lat,long = 0, 0
   api_key = os.getenv('GOOGLE_MAPS_API_KEY')
   base_url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
   endpoint = f"{base_url}{address}&key={api_key}"
