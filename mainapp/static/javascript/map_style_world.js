@@ -1,5 +1,5 @@
 // testing if we are getting data from home.html
-console.log(array);
+//console.log(array);
 
 function initMap() {
   const styledMapType = new google.maps.StyledMapType(
@@ -139,10 +139,11 @@ function initMap() {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(array[i][0], array[i][1]),
       map: map,
+      id: array[i][2]
     });
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
-      infowindow.setContent(`${marker.position}`);
+      infowindow.setContent(`ID:${marker.id}<br>LOC:${marker.position}`);
       infowindow.open(map, this);
     });
   }

@@ -15,8 +15,9 @@ def home(request):
   all_pins = Pin.objects.all()
   locations = []
   for pin in all_pins:
-    temp = [pin.lat,pin.long]
-    locations.append(temp)
+    for data in pin.user.all():
+      temp = [pin.lat,pin.long,data.id]
+      locations.append(temp)
   return render(request, 'home.html', {'locations' : locations, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
 @login_required
@@ -33,8 +34,9 @@ def pins_index(request):
     all_pins = Pin.objects.filter(user=request.user).order_by('-date')
   locations = []
   for pin in all_pins:
-    temp = [pin.lat,pin.long]
-    locations.append(temp)
+    for data in pin.user.all():
+      temp = [pin.lat,pin.long,data.id]
+      locations.append(temp)
   return render(request, 'pins/index.html', { 'pins': all_pins,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 @login_required
