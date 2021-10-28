@@ -6,7 +6,7 @@
   //const array = JSON.parse(myData);
   const userid = "{{userid}}"
 </script>
-<script async defer src="static/javascript/map_style_world.js"></script>
+<script async src="static/javascript/map_style_world.js"></script>
 
 
 <div id="map"></div>
@@ -14,7 +14,7 @@
 
 <script
   src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
-  async
+  async="false"
 ></script>
 
 <a class="waves-effect btn-large" href="{% url 'create' %}">Start Pinning!</a>
