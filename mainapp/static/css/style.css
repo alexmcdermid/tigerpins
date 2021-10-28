@@ -20,7 +20,7 @@ main {
 a, label, input {
   color: #2E1503;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 .btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2, button {
@@ -63,14 +63,13 @@ input:focus {
 }
 
 
-
 .btn-large {
   font-size: 20px;
 }
 
 /* Nav Bar  */
 nav {
-  height: 120px;
+  /* height: 120px; */
 }
 
 .nav-wrapper, .page-footer {
@@ -79,9 +78,9 @@ nav {
 
 .nav-wrapper ul a {
   color: #2E1503;
-  padding-top: 30px;
+  /* padding-top: 30px;
   padding-left: 80px;
-  padding-right: 40px;
+  padding-right: 40px; */
 }
 
 .nav-wrapper .left a{
@@ -96,7 +95,7 @@ nav {
 /* Index Page */
 
 .sort-buttons {
-text-align: right;
+/* text-align: right; */
 margin-bottom: 25px;
 
 }
@@ -160,13 +159,12 @@ img {
 
 /* Add Pin  */
 
-.main_container {
-  width: 1000px;
+.container {
+  /* width: 1000px; */
   /* background-color: red; */
-  border-radius: 25px;
   /* text-align: center; */
   font-weight: bold;
-  margin: 50px auto;
+  /* margin: 50px auto; */
 }
 .form_wrapper {
   width: 850px;
