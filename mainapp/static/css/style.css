@@ -22,7 +22,7 @@ a, label, input {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.btn, .btn-small, .waves-button-input, .brown.lighten-2, button {
+.btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2, button {
   background-color: #2E1503 !important;
   font-family: 'Courier New', Courier, monospace;
   color: white;
@@ -38,13 +38,67 @@ input:focus {
   box-shadow: 0 1px 0 0 #2E1503 !important;
 }
 
+/* Home Page */
+
 #map {
-  height: 400px;
-  /* The height is 400 pixels */
-  width: 100%;
-  /* The width is the width of the web page */
+  margin-top: 170px;
+  margin-bottom: 70px;
+  height: 400px;  
+  width: 100%;  
+
 }
 
+.main_slogan{
+  margin-bottom: 70px;
+}
+.index_slogan{
+  margin-bottom: 10px;
+}
+.page-footer {
+  padding-top: 0;
+  text-align: right;
+  font-size: 20px;
+  color: #2E1503;
+}
+
+
+
+.btn-large {
+  font-size: 20px;
+}
+
+/* Nav Bar  */
+nav {
+  height: 120px;
+}
+
+.nav-wrapper, .page-footer {
+  background-color: Tan;
+}
+
+.nav-wrapper ul a {
+  color: #2E1503;
+  padding-top: 30px;
+  padding-left: 80px;
+  padding-right: 40px;
+}
+
+.nav-wrapper .left a{
+  font-size: 55px;
+}
+.nav-wrapper .right a{
+  font-size: 25px;
+}
+
+
+
+/* Index Page */
+
+.sort-buttons {
+text-align: right;
+margin-bottom: 25px;
+
+}
 .card {
   height: 16em;
   overflow: hidden;
@@ -60,6 +114,17 @@ input:focus {
   border-radius: 25px;
 }
 
+.card-action a{
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+
+/* .card .card-image .card-title span{
+  color: black;
+} */
+
+
 .trip-header {
   text-align: center;
   font-size: 25px;
@@ -71,36 +136,23 @@ tr {
   border: 0px;
 }
 
-.nav-wrapper, .page-footer {
-  background-color: Tan;
+img {
+  width: 50px;
+  height: 50px;
+  
 }
 
-.nav-wrapper ul a {
-  color: #2E1503;
-}
 
-.nav-wrapper .left a{
-  font-size: 40px;
-}
-
-.page-footer {
-  padding-top: 0;
-  text-align: right;
-  color: #2E1503;
-}
-
+/* Show Page */
 .trip-details {
   background-color: beige;
   border-radius: 25px;
   padding: 10px;
 }
 
-/* Set the size of the div element that contains the map */
-#map {
-    height: 400px;  /* The height is 400 pixels */
-    width: 100%;    /* The width is the width of the web page */
-}
 
+
+/* Add Pin  */
 .datepicker-day-button, .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
   color: white;
 }
@@ -116,3 +168,5 @@ tr {
 .datepicker-date-display .year-text, .datepicker-table abbr {
   color: #2E1503;
 }
+
+

@@ -8,13 +8,15 @@
 </script>
 <script async defer src="static/javascript/map_style_world.js"></script>
 
-<br /><br /><br /><br /><br />
+
 <div id="map"></div>
-<h4>pin your world with us</h4>
+<h3 class="main_slogan">Pin Your World With Us! </h3>
 
 <script
   src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
   async
 ></script>
+
+<a class="waves-effect btn-large" href="{% url 'create' %}">Start Pinning!</a>
 
 {% endblock %}
