@@ -180,36 +180,27 @@ img {
 
 
 /* Add Pin  */
-
 .container {
-  /* width: 1000px; */
-  /* background-color: red; */
-  /* text-align: center; */
   font-weight: bold;
-  /* margin: 50px auto; */
 }
 .form_wrapper {
-  /* width: 850px;
-  height: 1000px;   */
+  height: 100%;
   background-color: #b4a284;
   margin: 100px auto;
+  padding-bottom: 40px;
 }
 .form_container {
-  /* width: 700px;
-  height: 650px;  */
   width: 80%;
-  height: 80%;
+  height: 100%;
   background-color: #f6ead4;
   border-radius: 25px;
   padding: 10px;
   font-size: 50px;
   font-weight: bold;
- /* margin-top: 40px; */
   margin: auto;
 }
 
 .create_slogan{
-  /* height: 50px; */
  padding-top: 35px;
   margin-bottom: 70px;
 }
