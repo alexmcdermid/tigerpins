@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
-{% block content %}
-<h1>Sign Up</h1>
-{% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
+{% extends 'base.html' %} {% block content %}
 
-<!-- Add the login form -->
-<form method="post" action="{% url 'signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn" value="signup">
-</form>
-{% endblock %}
+<div class="form_wrapper">
+  <h3 class="create_slogan">Let your adventer begin!</h3>
+  {% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+  {% endif %}
+
+  <!-- Add the login form -->
+  <form class="signup_form_container" method="post" action="{% url 'signup' %}">
+    {% csrf_token %} {{ form.as_p }}
+    <button class="btn-small" id="signup_btn" name="signup" type="submit" value="Sign Up">Sign Up</button>
+    <!-- <input type="submit" class="btn-small signup_btn" value="signup" /> -->
+  </form>
+  {% endblock %}
+</div>

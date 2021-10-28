@@ -20,7 +20,11 @@ main {
 a, label, input {
   color: #2E1503;
   font-family: 'Courier New', Courier, monospace;
-  /* font-size: 20px; */
+  font-size: 20px;
+}
+
+p {
+  margin-bottom: 40px;  
 }
 
 .btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2 {
@@ -53,7 +57,6 @@ input:focus {
   margin-bottom: 70px;
   height: 400px;  
   width: 100%;  
-
 }
 
 .main_slogan{
@@ -71,25 +74,17 @@ input:focus {
   color: #2E1503;
 }
 
-
 .btn-large {
   font-size: 20px;
 }
 
 /* Nav Bar  */
-nav {
-  /* height: 120px; */
-}
-
 .nav-wrapper, .page-footer {
   background-color: Tan;
 }
 
 .nav-wrapper ul a {
   color: #2E1503;
-  /* padding-top: 30px;
-  padding-left: 80px;
-  padding-right: 40px; */
 }
 
 .nav-wrapper .left a{
@@ -98,7 +93,6 @@ nav {
 .nav-wrapper .right a{
   font-size: 18px;
 }
-
 
 
 /* Index Page */
@@ -138,14 +132,7 @@ margin-bottom: 25px;
 .card-content {
   font: 12px;
   overflow: hidden;
-
 }
-
-
-/* .card .card-image .card-title span{
-  color: black;
-} */
-
 
 .trip-header {
   text-align: center;
@@ -163,12 +150,6 @@ th {
   border: 0px;
 }
 
-img {
-  width: 50px;
-  height: 50px;
-  
-}
-
 
 /* Show Page */
 .trip-details {
@@ -176,7 +157,6 @@ img {
   border-radius: 25px;
   padding: 10px;
 }
-
 
 
 /* Add Pin  */
@@ -200,6 +180,8 @@ img {
   margin: auto;
 }
 
+
+
 .create_slogan{
  padding-top: 35px;
   margin-bottom: 70px;
@@ -222,4 +204,31 @@ img {
   color: #2E1503;
 }
 
+/* sign up page */
+
+.signup_form_container {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 100%;
+  background-color: #f6ead4;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: auto;
+}
+
+
+.signup_form_container li, .helptext {
+  font-size: 13px;
+  color: grey
+}
+
+#signup_btn{
+  width: 15%;
+  text-align: center;
+  margin: 20px auto;
+}
+/* text over flows in mobile view */
 
