@@ -24,6 +24,7 @@ a, label, input {
 }
 
 .btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2, button {
+  margin-bottom: 70px;
   background-color: #2E1503 !important;
   font-family: 'Courier New', Courier, monospace;
   color: white;
@@ -42,7 +43,7 @@ input:focus {
 /* Home Page */
 
 #map {
-  margin-top: 170px;
+  margin-top: 70px;
   margin-bottom: 70px;
   height: 400px;  
   width: 100%;  
@@ -50,6 +51,7 @@ input:focus {
 }
 
 .main_slogan{
+  margin-top: 70px;
   margin-bottom: 70px;
 }
 .index_slogan{
@@ -87,7 +89,7 @@ nav {
   font-size: 40px;
 }
 .nav-wrapper .right a{
-  font-size: 25px;
+  font-size: 18px;
 }
 
 
