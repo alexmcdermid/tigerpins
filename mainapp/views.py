@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from .models import Pin
 from django.shortcuts import redirect, render
 from django.contrib.auth import base_user, login
@@ -126,3 +127,5 @@ def extract_latlong(address):
     pass
   return lat,long,address
 
+def hidden(request):
+  return HttpResponse('allo')

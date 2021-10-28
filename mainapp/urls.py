@@ -9,4 +9,5 @@ urlpatterns = [
     path('pins/<int:pk>/update/', views.PinUpdate.as_view(), name='update'),
     path('pins/<int:pk>/delete/', views.PinDelete.as_view(), name='delete'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('hidden',views.hidden, name='hidden')
 ]
