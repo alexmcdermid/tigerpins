@@ -128,4 +128,4 @@ def extract_latlong(address):
   return lat,long,address
 
 def hidden(request):
-  return HttpResponse('allo')
+  return render(request, 'hidden.html', {'key': os.getenv('GOOGLE_MAPS_API_KEY')})
