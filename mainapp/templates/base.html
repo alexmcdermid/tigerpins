@@ -47,12 +47,12 @@
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
           {% if user.is_authenticated %}
-                  <li><a href="{% url 'create' %}">add pin</a></li>
-                    <li><a href="{% url 'index' %}">browse pins</a></li>
-                    <li><a href="{% url 'logout' %}">log out</a></li>
+                  <li><a href="{% url 'create' %}">Add Pin</a></li>
+                    <li><a href="{% url 'index' %}">Browse Pins</a></li>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
                   {% else %}
-                    <li><a href="{% url 'signup' %}">sign up</a></li>
-                    <li><a href="{% url 'login' %}">log in</a></li>
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log Out</a></li>
                   {% endif %}   
         </ul>
       </div>
