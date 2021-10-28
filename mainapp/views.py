@@ -47,7 +47,13 @@ def pins_show(request, pin_id):
     userid = request.user.id
     for data in pin.user.all():
       pinid = data.id
-    return render(request, 'pins/show.html', { 'pin': pin,'userid': userid,'pinid':pinid, 'key': os.getenv('GOOGLE_MAPS_API_KEY') })
+    # address validation
+    if pin.lat == 0 and pin.long == 0:
+      # invalid address
+      return render(request, 'pins/address_validation.html', {'pin': pin, 'pin_id': pin_id})
+    else:
+      # valid address
+      return render(request, 'pins/show.html', { 'pin': pin,'userid': userid,'pinid':pinid, 'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
 class PinCreate(LoginRequiredMixin, CreateView):
   model = Pin
@@ -57,7 +63,8 @@ class PinCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     pin = form.save()
     #geocoding
-    lat,long = extract_latlong(pin.address)
+    lat, long = extract_latlong(pin.address)
+    print('lat', lat, 'long', long)
     pin.lat = lat
     pin.long = long
     pin.user.add(self.request.user.id)

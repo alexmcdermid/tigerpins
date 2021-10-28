@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<h3>Invalid Address</h3>
+<h5>You have entered an invalid address.</h5>
+
+<p>Please choose to re-submit a valid address or to delete this record.</p>
+
+<form action="{% url 'update' pin_id %}" method="GET">
+    {% csrf_token %}
+    <button type="submit">Re-submit</button>
+    <input hidden name="name" value={{ pin.name }}>
+    <input hidden name="address" value={{ pin.address }}>
+    <input hidden name="date" value={{ pin.date }}>
+    <input hidden name="purpose" value={{ pin.purpose }}>
+    <input hidden name="rating" value={{ pin.rating }}>
+    <input hidden name="note" value={{ pin.note }}>
+</form>
+
+<form action="{% url 'delete' pin_id %}" method="GET">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+
+<p>Your Pin's Details:</p>
+<ul>
+    <li>Name: {{pin.name}}</li>
+    <li>Purpose: {{pin.purpose}}</li>
+    <li>Date: {{pin.date}}</li>
+    <li>Rating: {{pin.rating}}</li>
+    <li>Note: {{pin.note}}</li>
+</ul>
+
+{% endblock %}
