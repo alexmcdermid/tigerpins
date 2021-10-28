@@ -63,10 +63,11 @@ class PinCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     pin = form.save()
     #geocoding
-    lat, long = extract_latlong(pin.address)
+    lat, long, address = extract_latlong(pin.address)
     print('lat', lat, 'long', long)
     pin.lat = lat
     pin.long = long
+    pin.address = address
     pin.user.add(self.request.user.id)
     return super().form_valid(form)
 
@@ -77,9 +78,10 @@ class PinUpdate(LoginRequiredMixin, UpdateView):
   def form_valid(self,form):
     pin = form.save()
     #geocoding
-    lat,long = extract_latlong(pin.address)
+    lat,long,address = extract_latlong(pin.address)
     pin.lat = lat
     pin.long = long
+    pin.address = address
     return super().form_valid(form)
 
 
@@ -119,7 +121,8 @@ def extract_latlong(address):
     results = response.json()['results'][0]
     lat = results['geometry']['location']['lat']
     long = results['geometry']['location']['lng']
+    address = results['formatted_address']
   except:
     pass
-  return lat,long
+  return lat,long,address
 
