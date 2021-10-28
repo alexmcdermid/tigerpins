@@ -58,7 +58,7 @@ input:focus {
 .page-footer {
   padding-top: 0;
   text-align: right;
-  font-size: 20px;
+  font-size: 15px;
   color: #2E1503;
 }
 
@@ -84,7 +84,7 @@ nav {
 }
 
 .nav-wrapper .left a{
-  font-size: 55px;
+  font-size: 40px;
 }
 .nav-wrapper .right a{
   font-size: 25px;
@@ -101,7 +101,7 @@ margin-bottom: 25px;
 }
 .card {
   height: 16em;
-  overflow: hidden;
+  /* overflow: hidden; */
   word-wrap: break-word;
 }
 .pin-container {
@@ -167,14 +167,16 @@ img {
   /* margin: 50px auto; */
 }
 .form_wrapper {
-  width: 850px;
-  height: 1000px;  /* The height is 400 pixels */
+  /* width: 850px;
+  height: 1000px;   */
   background-color: #b4a284;
   margin: 100px auto;
 }
 .form_container {
-  width: 700px;
-  height: 650px; 
+  /* width: 700px;
+  height: 650px;  */
+  width: 80%;
+  height: 80%;
   background-color: #f6ead4;
   border-radius: 25px;
   padding: 10px;
@@ -185,7 +187,7 @@ img {
 }
 
 .create_slogan{
-  height: 50px;
+  /* height: 50px; */
  padding-top: 35px;
   margin-bottom: 70px;
 }
