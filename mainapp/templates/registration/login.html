@@ -8,8 +8,8 @@
 <form class="signup_form_container" method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ form.as_p }}
-  <input id="login" type="submit" class="btn" value="login">
-  <input id="login" type="hidden" name="next" value="{{ next }}">
+  <input id="login_btn" type="submit" class="btn" value="login">
+  <input type="hidden" name="next" value="{{ next }}">
 </form>
 {% endblock %}
 </div>

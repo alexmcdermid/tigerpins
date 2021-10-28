@@ -219,22 +219,25 @@ th {
   margin: auto;
 }
 
+.signup_form_container label {
+  font-size: 20px;
+  color: #2E1503;
+}
 
 .signup_form_container li, .helptext {
   font-size: 13px;
   color: grey
 }
 
-#signup_btn{
-  width: 15%;
+#signup_btn, #login-btn{
+  width: 50%;
   text-align: center;
   margin: 20px auto;
 }
 /* text over flows in mobile view */
 
 /* login */
-#login, #id_password, #id_username {
-  width: 70%;
+#id_password, #id_username  {
   text-align: center;
   margin: 20px auto;
 }
