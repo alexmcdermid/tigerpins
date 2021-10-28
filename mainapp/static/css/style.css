@@ -20,7 +20,7 @@ main {
 a, label, input {
   color: #2E1503;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
 p {
