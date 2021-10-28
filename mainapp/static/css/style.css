@@ -23,9 +23,15 @@ a, label, input {
   /* font-size: 20px; */
 }
 
-.btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2, button {
+.btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2 {
   margin-bottom: 70px;
   background-color: #2E1503 !important;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+.gm-control-active, .gm-fullscreen-control, .gm-svpc {
+  background-color: Tan !important;
   font-family: 'Courier New', Courier, monospace;
   color: white;
 }
