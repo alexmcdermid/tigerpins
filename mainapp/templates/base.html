@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>tigerpins</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
@@ -21,8 +22,10 @@
   <header class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">Tiger Pins</a></li>
+
+        <!-- Normal Nav Bar -->
+        <ul class="left">
+          <li><a href="/" id="home_btn">Tiger Pins</a></li>
         </ul>
         <ul class="right hide-on-small-only">
             {% if user.is_authenticated %}
@@ -34,20 +37,24 @@
               <li><a href="{% url 'login' %}">log in</a></li>
             {% endif %}        
         </ul>
-         <!-- Dropdown Trigger -->
-  <a class='dropdown-trigger btn right hide-on-med-and-up' href='#' data-target='dropdown1'>Drop Me!</a>
 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    {% if user.is_authenticated %}
-            <li><a href="{% url 'create' %}">add pin</a></li>
-              <li><a href="{% url 'index' %}">browse pins</a></li>
-              <li><a href="{% url 'logout' %}">log out</a></li>
-            {% else %}
-              <li><a href="{% url 'signup' %}">sign up</a></li>
-              <li><a href="{% url 'login' %}">log in</a></li>
-            {% endif %}   
-  </ul>
+         <!-- Dropdown Trigger -->
+        <ul class="right hide-on-med-and-up">
+          <li><a href="#" class="dropdown-trigger" data-target="dropdown1"><i class="material-icons">dehaze</i></a></li>
+          <!-- <a class='dropdown-trigger right hide-on-med-and-up' href='#' data-target='dropdown1' id="hamburger"><i class="material-icons">dehaze</i></a> -->
+        </ul>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          {% if user.is_authenticated %}
+                  <li><a href="{% url 'create' %}">add pin</a></li>
+                    <li><a href="{% url 'index' %}">browse pins</a></li>
+                    <li><a href="{% url 'logout' %}">log out</a></li>
+                  {% else %}
+                    <li><a href="{% url 'signup' %}">sign up</a></li>
+                    <li><a href="{% url 'login' %}">log in</a></li>
+                  {% endif %}   
+        </ul>
       </div>
     </nav>
   </header>

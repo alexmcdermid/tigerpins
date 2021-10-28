@@ -79,6 +79,10 @@ tr {
   color: #2E1503;
 }
 
+.nav-wrapper .left a{
+  font-size: 40px;
+}
+
 .page-footer {
   padding-top: 0;
   text-align: right;
