@@ -1,12 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% block content %}
-<h1>Log In</h1>
+
+<div class="_wrapper">
+<h3 class="create_slogan">Log In</h3>
 
 <!-- Add the login form -->
-<form method="post" action="{% url 'login' %}">
+<form class="signup_form_container" method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
+  <input id="login" type="submit" class="btn" value="login">
+  <input id="login" type="hidden" name="next" value="{{ next }}">
 </form>
 {% endblock %}
+</div>

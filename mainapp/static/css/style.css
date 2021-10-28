@@ -232,3 +232,9 @@ th {
 }
 /* text over flows in mobile view */
 
+/* login */
+#login, #id_password, #id_username {
+  width: 70%;
+  text-align: center;
+  margin: 20px auto;
+}
