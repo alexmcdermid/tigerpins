@@ -1,8 +1,8 @@
 // testing if we are getting data from home.html
-console.log(array);
+//console.log(array);
 
 
-function initMap() {
+window.initMap = function() {
   var pinColor = "FE7569";
   var pinColor2 = "FFFFFF"
     var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,

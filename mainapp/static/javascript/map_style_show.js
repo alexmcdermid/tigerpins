@@ -1,6 +1,5 @@
-console.log("comeon");
 
-function initMap() {
+window.initMap = function(){
   const styledMapType = new google.maps.StyledMapType(
     [
       { elementType: "geometry", stylers: [{ color: "#f52245" }] },
