@@ -100,3 +100,19 @@ tr {
     height: 400px;  /* The height is 400 pixels */
     width: 100%;    /* The width is the width of the web page */
 }
+
+.datepicker-day-button, .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+  color: white;
+}
+/* 
+.month-prev, .month-next {
+  background-color: Tan !important;
+} */
+
+.datepicker-date-display, .datepicker-calendar-container {
+  background-color: Tan;
+}
+
+.datepicker-date-display .year-text, .datepicker-table abbr {
+  color: #2E1503;
+}
