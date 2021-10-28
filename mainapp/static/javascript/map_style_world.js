@@ -179,7 +179,7 @@ window.initMap = function() {
     google.maps.event.addListener(marker, "click", function () {
       // do something with this marker ...
       //could somehow fetch the name of this user here
-      infowindow.setContent(`user: ${this.id}<br>address: ${this.address}<br>
+      infowindow.setContent(`${this.id}<br>${this.address}<br>
       <a href="../pins/${this.pinid}">click here for more info</a>
       `);
       infowindow.open(map, this);

@@ -18,7 +18,7 @@ def home(request):
   locations = []
   for pin in all_pins:
     for data in pin.user.all():
-      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.address]
+      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.name]
       locations.append(temp)
   return render(request, 'home.html', {'locations' : locations, 'userid':user.id, 'key': os.getenv('GOOGLE_MAPS_API_KEY')})
 
@@ -38,7 +38,7 @@ def pins_index(request):
   locations = []
   for pin in all_pins:
     for data in pin.user.all():
-      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.address]
+      temp = [pin.lat,pin.long,data.id,pin.id,data.username,pin.name]
       locations.append(temp)
   return render(request, 'pins/index.html', { 'pins': all_pins,'userid':user.id,'locations' : locations,'key': os.getenv('GOOGLE_MAPS_API_KEY') })
 
