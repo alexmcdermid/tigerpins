@@ -45,7 +45,7 @@
         </ul>
 
         <!-- Dropdown Structure -->
-        <ul id='dropdown1' class='dropdown-content'>
+        <ul id='dropdown1' class='dropdown-content browser-default'>
           {% if user.is_authenticated %}
                   <li><a href="{% url 'create' %}">Add Pin</a></li>
                     <li><a href="{% url 'index' %}">Browse Pins</a></li>
