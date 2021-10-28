@@ -20,6 +20,7 @@ main {
 a, label, input {
   color: #2E1503;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 20px;
 }
 
 .btn, .btn-small, .btn-large, .waves-button-input, .brown.lighten-2, button {
@@ -136,6 +137,11 @@ tr {
   border: 0px;
 }
 
+th {
+  font-size: 40px;
+  border: 0px;
+}
+
 img {
   width: 50px;
   height: 50px;
@@ -153,6 +159,40 @@ img {
 
 
 /* Add Pin  */
+
+.main_container {
+  width: 1000px;
+  /* background-color: red; */
+  border-radius: 25px;
+  /* text-align: center; */
+  font-weight: bold;
+  margin: 50px auto;
+}
+.form_wrapper {
+  width: 850px;
+  height: 1000px;  /* The height is 400 pixels */
+  background-color: #b4a284;
+  margin: 100px auto;
+}
+.form_container {
+  width: 700px;
+  height: 650px; 
+  background-color: #f6ead4;
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 50px;
+  font-weight: bold;
+ /* margin-top: 40px; */
+  margin: auto;
+}
+
+.create_slogan{
+  height: 50px;
+ padding-top: 35px;
+  margin-bottom: 70px;
+}
+
+
 .datepicker-day-button, .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
   color: white;
 }
