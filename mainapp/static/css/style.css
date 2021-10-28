@@ -125,7 +125,8 @@ margin-bottom: 25px;
 .card-action a{
   font-size: 20px;
   margin-right: 0px;
-  margin-left: 2px;
+  margin-left: 22px;
+  text-align: center;
 }
 
 .card-content {
