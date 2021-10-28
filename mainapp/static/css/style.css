@@ -58,6 +58,7 @@ input:focus {
   margin-bottom: 10px;
 }
 .page-footer {
+  margin-top: 70px;
   padding-top: 0;
   text-align: right;
   font-size: 15px;
@@ -105,6 +106,11 @@ margin-bottom: 25px;
   height: 16em;
   /* overflow: hidden; */
   word-wrap: break-word;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 .pin-container {
   display: flex;
@@ -112,13 +118,19 @@ margin-bottom: 25px;
   align-items: center;
 }
 
-.card {
+.card-action {
   border-radius: 25px;
 }
 
 .card-action a{
   font-size: 20px;
   margin-right: 0px;
+}
+
+.card-content {
+  font: 12px;
+  overflow: hidden;
+
 }
 
 
