@@ -1,14 +1,5 @@
 # Tigerpins 
-Tigerpins is a webapp that allows users to log places they've been to, and see places that others have been to. 
-## Screenshots
-![homeNotLoggedIn](images/img1.png)
-![homeLoggedIn](images/img2.png)
-![add](images/add.png)
-![userIndex](images/img3.png)
-![userShow](images/img4.png)
-## Technologies used
-
-Django (Python), HTML, CSS, JS
+Tigerpins is a full-stack web application that allows users to log and recall places they've been to, and take a look at places that others users have been to. Users are able to see all of their locations visually pinned on a map and are able to explore their notes of any location but selecting any pin on the map.
 
 ## Getting Started
 
@@ -16,6 +7,19 @@ https://tigerpins.herokuapp.com/
 
 https://trello.com/b/bYoQYg7j/tigerpins
 
-## Next Steps
+## Technologies used
 
-Allow for users to add friends and request contact info.
+Languages: HTML, CSS, JavaScript, Python
+
+Tech: Django (back-end server), Materialize (CSS framework), Google Maps (API)
+
+## Screenshots
+![homeNotLoggedIn](images/img1.png)
+![homeLoggedIn](images/img2.png)
+![addForm](images/add.png)
+![userIndex](images/img3.png)
+![userShow](images/img4.png)
+
+## Icebox
+- Allow for users to add friends and request contact info.
+- Allow other users to comment on pins created by other users.
