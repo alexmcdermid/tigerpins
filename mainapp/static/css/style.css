@@ -20,7 +20,7 @@ main {
 a, label, input {
   color: #2E1503;
   font-family: 'Courier New', Courier, monospace;
-  /* font-size: 20px; */
+  font-size: 20px;
 }
 
 p {
@@ -140,13 +140,8 @@ margin-bottom: 25px;
   font-weight: bold;
 }
 
-tr {
-  font-size: 20px;
-  border: 0px;
-}
-
-th {
-  font-size: 40px;
+tr, th {
+  font-size: 15px;
   border: 0px;
 }
 

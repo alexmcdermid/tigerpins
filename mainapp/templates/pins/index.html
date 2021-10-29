@@ -21,8 +21,6 @@
     </form>
   </div>
 
-  
-
   <div class="row">
     {% for pin in pins %}
     <div class="col s12 m6 l4">
@@ -46,54 +44,6 @@
     {% endfor %}
   </div>
 
-<!-- Previous card withtout detail link
-<div class="card_container">
-  <div class="row">
-    {% for pin in pins %}
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-content">
-          <a href="{% url 'show' pin.id %}">
-            <span class="card-title">
-              <h5><b>{{ pin.name.upper }}</b></h5>
-              <p>{{ pin.address.upper }}</p>
-              <p>{{ pin.date }}</p>
-              <p>{{ pin.rating }} / 5</p>
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-</div> -->
-
-
-<!-- attempt for card with an image -->
-<!-- <div class="card_container">
-  <div class="row">
-    {% for pin in pins %}
-    <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-image">
-          <img src="../static/img/1.jpg">
-          <span class="card-title">  {{ pin.name.upper }}</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red" href="{% url 'show' pin.id %}"><i class="material-icons">add</i></a>
-        </div>
-
-
-        <div class="card-content">
-              <p>{{ pin.address.upper }}</p>
-              <p>{{ pin.date }}</p>
-              <p>{{ pin.rating }} / 5</p>
-        </div>
-  
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-</div> -->
 
 <script
   src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&libraries=&v=weekly"
