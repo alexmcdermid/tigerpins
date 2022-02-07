@@ -1,0 +1,1 @@
+must have postgresql server running, django and python installed, then python3 manage.py runserver
