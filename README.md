@@ -13,7 +13,7 @@ https://trello.com/b/bYoQYg7j/tigerpins
 
 Languages: HTML, CSS, JavaScript, Python
 
-Tech: Django (back-end server), Materialize (CSS framework), Google Maps (API)
+Tech: Django (back-end server), PostgreSQL (Database), Materialize (CSS framework), Google Maps (API)
 
 ## Screenshots
 ![homeNotLoggedIn](images/img1.png)
